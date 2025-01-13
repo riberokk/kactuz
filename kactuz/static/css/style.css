@@ -124,6 +124,65 @@ header a {
     display: none;
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#compra form{
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.671);
+	border-radius: 50px;
+	max-width: 500px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin: 15vh auto;
+}
+
+#compra .label{
+    font-size: 1.5rem;
+	margin-top: 50px;
+}
+
+#compra .input{
+	font-size: 1.5rem;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.671);
+	border-radius: 15px;
+	margin-top: 30px;
+	padding-left: 8px;
+	padding: 10px 0 10px 8px; 
+}
+
+.label{
+    font-size: 1.3rem;
+}
+
+.select{
+    font-size: 1rem;
+    border: solid black, 1px;
+    padding: 10px 5px 10px 5px;
+    border-radius: 30px;
+}
+
+.botao{
+	margin: 20px auto 30px auto;
+	width: 130px;
+	height: 50px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.589);
+	border-radius: 30px;
+	font-size: 1.5rem;
+	transition: transform 0.2s ease;
+}
+
+.botao:hover{
+	transform: translateY(-3px);
+	cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .compra {
         padding: 10px;
@@ -182,4 +241,18 @@ header a {
         height: auto;
         border-radius: 10px;
     }
+
+    #compra form{
+		max-width: 330px;
+		margin: 3vh auto;
+	}
+
+	#compra .label{
+		margin-top: 18px;
+	}
+
+	#compra .input{
+		padding: 5px 0 5px 8px; 
+        margin-top: 8px;
+	}
 }

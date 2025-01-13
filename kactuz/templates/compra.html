@@ -1,29 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 <head>
     <meta charset="UTF-8">
-    <title>Kactuz Studios | Compra</title>
+    <meta name="author" content="Ribero">
+    <meta name="application-name" content="Kactuz Studios">
+    <meta name="keywords" content="kactuz, kactuz studios, kactuzgang, opium, streetwear">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Kactuz Studios</title>
 </head>
-<body style="background-color: black;">
+<body id="compra" >
+    <header class="header">
+        <img src="../static/imgs/kactuz.png" alt="Logo Kactuz" />
+        <div class="links">
+            <a href="{{ url_for("homepage") }}">Home</a>
+            <a href="{{ url_for("products") }}">Produtos</a>
+            <a href="https://www.instagram.com/kactuz_studios">Contato</a>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for("logout") }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for("login") }}">Login</a>
+            {% endif %}
+        </div>
+    </header>
+    
     <form action="" method="post">
         {{ form.csrf_token }}
 
-            {{ form.email.label() }}
-            {{ form.email() }}
+            {{ form.email.label(class="label") }}
+            {{ form.email(class="input") }}
 
-            {{ form.cep.label() }}
-            {{ form.cep() }}
+            {{ form.cep.label(class="label") }}
+            {{ form.cep(class="input") }}
 
-            {{ form.address.label() }}
-            {{ form.address() }}
+            {{ form.address.label(class="label") }}
+            {{ form.address(class="input") }}
 
-            {{ form.numero.label() }}
-            {{ form.numero() }}
+            {{ form.numero.label(class="label") }}
+            {{ form.numero(class="input") }}
 
-            {{ form.complemento.label() }}
-            {{ form.complemento() }}
+            {{ form.complemento.label(class="label") }}
+            {{ form.complemento(class="input") }}
 
-            {{ form.botao() }}
+            {{ form.botao(class="botao") }}
     </form>
+
 </body>
 </html>

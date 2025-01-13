@@ -14,7 +14,7 @@ class FormCadastro(FlaskForm):
 	usuario = StringField("Usuario", validators=[DataRequired()])
 	email = StringField('Email', validators=[DataRequired(), Email()])
 	senha = PasswordField("Senha", validators=[DataRequired(), Length(6, 20)])
-	confirma_senha = PasswordField("Senha", validators=[DataRequired(), EqualTo("senha")])
+	confirma_senha = PasswordField("Senha", validators=[DataRequired(), EqualTo("senha", message="As senhas não coincidem.")])
 	botao = SubmitField("Cadastrar")
 	def validate_email(self, email):
 		usuario = Users.query.filter_by(email=email.data).first()
@@ -30,5 +30,5 @@ class FormCompra(FlaskForm):
 	botao = SubmitField("Comprar")
 
 class FormTamanho(FlaskForm):
-	tamanho = SelectField("Escolha o Tamanho", choices=[('P', 'Pequeno'), ('M', 'Médio'), ('G', 'Grande'), ('GG', 'Extra Grande')], validators=[DataRequired()])
-	botao = SubmitField("Continuar Comprando")
+	tamanho = SelectField("Escolha o Tamanho", choices=[('P'), ('M'), ('G'), ('GG')], validators=[DataRequired()])
+	botao = SubmitField("Comprar")

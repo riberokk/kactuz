@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, jsonify
 from flask_login import login_required, login_user, logout_user, current_user
-from kactuz import app, database, bcrypt
+from kactuz import app, database, bcrypt, form
 from kactuz.models import Users, Address, Purchase
 from kactuz.forms import FormLogin, FormCadastro, FormCompra, FormTamanho
 
@@ -44,10 +44,19 @@ def products():
 	print(f"Usuário autenticado: {current_user.is_authenticated}")
 	return render_template("products.html")
 
-@app.route("/camiseta")
+@app.route("/camiseta", methods=["GET", "POST"])
 def camisa():
 	print(f"Usuário autenticado: {current_user.is_authenticated}")
-	return render_template("camisa.html")
+	form_venda = FormTamanho()
+	if form_venda.validate_on_submit():
+		venda = Purchase(
+			tamanho=form_venda.tamanho.data,
+			id_usuario=current_user.id
+		)
+		database.session.add(venda)
+		database.session.commit()
+		return redirect(url_for('compra'))
+	return render_template("camisa.html", form=form_venda)
 
 @app.route("/endereco", methods=["GET", "POST"])
 @login_required
@@ -63,22 +72,9 @@ def compra():
         )
         database.session.add(compra)
         database.session.commit()
-        return redirect(url_for('homepage'))
+        return redirect(url_for('form'))
     return render_template("compra.html", form=form_compra)
 
-@app.route("/compra", methods=["GET", "POST"])
-@login_required
-def venda():
-	form_venda = FormTamanho()
-	if form_venda.validate_on_submit():
-		venda = Purchase(
-			tamanho=form_venda.tamanho.data,
-			id_usuario=current_user.id
-		)
-		database.session.add(venda)
-		database.session.commit()
-		return redirect(url_for('compra'))
-	return render_template("tamanho.html", form=form_venda)
 
 
 
