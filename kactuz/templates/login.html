@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ribero">
+    <meta name="application-name" content="Kactuz Studios">
+    <meta name="keywords" content="kactuz, kactuz studios, kactuzgang, opium, streetwear">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>Kactuz Studios</title>
+</head>
+<body>
+    <header class="header">
+        <img src="../static/imgs/kactuz.png" alt="Logo Kactuz" />
+        <div class="links">
+        <<a href="{{ url_for("homepage") }}">Home</a>
+        <a href="{{ url_for("products") }}">Produtos</a>
+        <a href="https://www.instagram.com/kactuz_studios">Contato</a>
+        </div>
+    </header>
+    <form action="" method="post">
+		{{ form.csrf_token }}
+
+			{{ form.email.label() }}
+			{{ form.email() }}
+			
+			{{ form.senha.label() }}
+			{{ form.senha() }}
+
+			{{ form.botao() }}
+
+            <a href="{{ url_for("cadastro") }}">Criar Conta</a>
+
+	</form>
+</body>
+</html>
