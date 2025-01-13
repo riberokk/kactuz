@@ -6,14 +6,14 @@
     <meta name="application-name" content="Kactuz Studios">
     <meta name="keywords" content="kactuz, kactuz studios, kactuzgang, opium, streetwear">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../static/css/style.css">
     <title>Kactuz Studios</title>
 </head>
 <body>
     <header class="header">
         <img src="../static/imgs/kactuz.png" alt="Logo Kactuz" />
         <div class="links">
-        <<a href="{{ url_for("homepage") }}">Home</a>
+        <a href="{{ url_for("homepage") }}">Home</a>
         <a href="{{ url_for("products") }}">Produtos</a>
         <a href="https://www.instagram.com/kactuz_studios">Contato</a>
         </div>
@@ -21,15 +21,15 @@
     <form action="" method="post">
 		{{ form.csrf_token }}
 
-			{{ form.email.label() }}
-			{{ form.email() }}
+			{{ form.email.label(class="label") }}
+			{{ form.email(class="input") }}
 			
-			{{ form.senha.label() }}
-			{{ form.senha() }}
+			{{ form.senha.label(class="label") }}
+			{{ form.senha(class="input") }}
 
-			{{ form.botao() }}
+			{{ form.botao(class="botao") }}
 
-            <a href="{{ url_for("cadastro") }}">Criar Conta</a>
+            <a class="criarconta" href="{{ url_for("cadastro") }}">Criar Conta</a>
 
 	</form>
 </body>

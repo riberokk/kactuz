@@ -6,7 +6,7 @@
     <meta name="application-name" content="Kactuz Studios">
     <meta name="keywords" content="kactuz, kactuz studios, kactuzgang, opium, streetwear">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../static/css/style.css">
     <title>Kactuz Studios</title>
 </head>
 <body>
@@ -21,21 +21,21 @@
     <form action="" method="post">
 		{{ form.csrf_token }}
 
-			{{ form.usuario.label() }}
-			{{ form.usuario() }}
+			{{ form.usuario.label(class="label") }}
+			{{ form.usuario(class="input") }}
 
-            {{ form.email.label() }}
-			{{ form.email() }}
+            {{ form.email.label(class="label") }}
+			{{ form.email(class="input") }}
 
-			{{ form.senha.label() }}
-			{{ form.senha() }}
+			{{ form.senha.label(class="label") }}
+			{{ form.senha(class="input") }}
 
-            {{ form.confirma_senha.label() }}
-			{{ form.confirma_senha() }}
+            {{ form.confirma_senha.label(class="label") }}
+			{{ form.confirma_senha(class="input") }}
 
-			{{ form.botao() }}
+			{{ form.botao(class="botao") }}
 
-            <a href="{{ url_for("login") }}">Entrar na Conta</a>
+            <a class="criarconta" href="{{ url_for("login") }}">Entrar na Conta</a>
 
 	</form>
 </body>

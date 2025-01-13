@@ -1,53 +1,185 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Reset básico para garantir consistência entre navegadores */
 * {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  box-sizing: border-box;
-  list-style: none;
-  text-decoration: none;
-  background-color: black;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
 }
 
-header{
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+body {
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    padding: 10px;
 }
 
 header img {
-	width: 100px;
+    width: 100px;
 }
 
-header a{
-	color: white;
-	font-size: 1.3rem;
-	font-family: "Poppins", sans-serif;
-	margin-left: 25px;
+header a {
+    color: white;
+    font-size: 1.3rem;
+    margin-left: 25px;
 }
 
-.corpo{
-	display: flex;
-	justify-content: center;
-	margin-top: 30vh;
+.corpo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
 }
 
-.produto{
-	margin-left: auto;
-	margin-right: auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 20vh;
-	background-color: rgb(0, 0, 0);
-	box-shadow: 0 0 15px rgb(255, 255, 255);
-	border-radius: 50px;
-	width: 600px;
-	height: 600px;
+.corpo img {
+    max-width: 100%;
+    height: auto;
 }
 
-.compra{
-	border: solid white,2px;
+.compra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.camisa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%; 
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.camisa img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.camisa h1,
+.preco,
+.camisa a {
+    text-align: center;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.preco {
+    font-size: 1.5rem;
+}
+
+.camisa a {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 10px 18px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 20px rgba(204, 204, 204, 0.5);
+    border-radius: 25px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+    transition: box-shadow 0.3s ease;
+}
+
+.camisa a:hover {
+    box-shadow: 0 0 20px rgba(80, 80, 80, 0.5);
+    cursor: pointer;
+}
+
+.imgs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.imgs img {
+    width: 80px;
+    height: auto;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.imgs img:hover {
+    transform: scale(1.1);
+}
+
+.slider {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .compra {
+        padding: 10px;
+    }
+    .camisa {
+        width: 100%;
+        margin: 10px auto;
+    }
+    .camisa img {
+        display: none;
+    }
+    .imgs {
+        justify-content: space-around;
+    }
+    .imgs img {
+        width: 60px;
+        border-radius: 10px;
+    }
+    .camisa h1 {
+        font-size: 1.2rem;
+    }
+
+    .preco {
+        font-size: 1.2rem;
+    }
+
+    .camisa a {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+
+    .imgs {
+        display: none;
+    }
+
+    .slider {
+        display: block;
+        width: 90%;
+        max-width: 400px;
+        margin: 20px auto;
+        overflow: hidden;
+    }
+
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .slide {
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .slide img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
 }
