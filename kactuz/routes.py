@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, jsonify
 from flask_login import login_required, login_user, logout_user, current_user
-from kactuz import app, database, bcrypt, form
+from kactuz import app, database, bcrypt
 from kactuz.models import Users, Address, Purchase
 from kactuz.forms import FormLogin, FormCadastro, FormCompra, FormTamanho
 
