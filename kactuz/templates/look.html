@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<title>Kactuz Studios</title>
+</head>
+<body>
+	<header class="header">
+        <img src="../static/imgs/kactuz.png" alt="Logo Kactuz" />
+        <div class="links">
+            <a href="{{ url_for("homepage") }}">Home</a>
+            <a href="{{ url_for("products") }}">Produtos</a>
+            <a href="https://www.instagram.com/kactuz_studios">Contato</a>
+            <a href="{{ url_for("look") }}">LookBook</a>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for("logout") }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for("login") }}">Login</a>
+            {% endif %}
+        </div>
+    </header>
+
+	<div class="looks">
+		<img class="look_duhploh1"  src="../static/imgs/looks/look_duhploh (1).jpeg" alt="">
+		<img class="look_duhploh2" src="../static/imgs/looks/look_duhploh (2).jpeg" alt="">
+		<img class="look_duhploh3" src="../static/imgs/looks/look_duhploh (3).jpeg" alt="">
+		<img class="look_duhploh4" src="../static/imgs/looks/look_duhploh (4).jpeg" alt="">
+	</div>
+</body>
+</html>

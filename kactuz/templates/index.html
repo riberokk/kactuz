@@ -16,6 +16,7 @@
             <a href="{{ url_for("homepage") }}">Home</a>
             <a href="{{ url_for("products") }}">Produtos</a>
             <a href="https://www.instagram.com/kactuz_studios">Contato</a>
+            <a href="{{ url_for("look") }}">LookBook</a>
             {% if current_user.is_authenticated %}
                 <a href="{{ url_for("logout") }}">Logout</a>
             {% else %}
@@ -26,5 +27,12 @@
     <div class="corpo">
         <img src="../static/imgs/2569a75f-299c-470f-992d-02fd04063e68.jpeg" alt="">
     </div>
+
+    <script>
+        function toggleMenu() {
+            var links = document.querySelector('.links');
+            links.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

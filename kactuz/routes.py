@@ -75,6 +75,10 @@ def compra():
         return redirect(url_for('form'))
     return render_template("compra.html", form=form_compra)
 
+@app.route("/look")
+def look():
+	return render_template("look.html")
+
 
 
 
