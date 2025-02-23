@@ -74,7 +74,7 @@ def compra():
         )
         database.session.add(compra)
         database.session.commit()
-        return redirect(url_for('form'))
+        return redirect(url_for('compra'))
     return render_template("compra.html", form=form_compra)
 
 @app.route("/look")
