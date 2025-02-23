@@ -45,18 +45,20 @@ def products():
 	return render_template("products.html")
 
 @app.route("/camiseta", methods=["GET", "POST"])
+@login_required  # Isso garante que apenas usuários autenticados acessem a rota
 def camisa():
-	print(f"Usuário autenticado: {current_user.is_authenticated}")
-	form_venda = FormTamanho()
-	if form_venda.validate_on_submit():
-		venda = Purchase(
-			tamanho=form_venda.tamanho.data,
-			id_usuario=current_user.id
-		)
-		database.session.add(venda)
-		database.session.commit()
-		return redirect(url_for('compra'))
-	return render_template("camisa.html", form=form_venda)
+    print(f"Usuário autenticado: {current_user.is_authenticated}")
+    form_venda = FormTamanho()
+    if form_venda.validate_on_submit():
+        venda = Purchase(
+            tamanho=form_venda.tamanho.data,
+            id_usuario=current_user.id  # Aqui não terá erro, pois a rota exige login
+        )
+        database.session.add(venda)
+        database.session.commit()
+        return redirect(url_for('compra'))
+    return render_template("camisa.html", form=form_venda)
+
 
 @app.route("/endereco", methods=["GET", "POST"])
 @login_required
